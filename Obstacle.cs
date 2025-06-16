@@ -17,8 +17,9 @@ namespace WackyRaceProject
         public string Name { get => name; set => name = value; }
         public PictureBox Picture { get => picture; set => picture = value; }
 
-        public Obstacle(Image pImage)
+        public Obstacle(string name, Image pImage)
         {
+            this.Name = name;
             this.IsDestroyed = false;
             this.Picture = new PictureBox();
             this.Picture.Image = pImage;
@@ -45,6 +46,15 @@ namespace WackyRaceProject
         {
             this.Picture.Parent = container;
             this.Picture.BringToFront();
+        }
+        public void RemoveFrom(Control container)
+        {
+            container.Controls.Remove(this.Picture);
+            Picture.Dispose();
+        }
+        public bool CheckCollision(PictureBox otherPic)
+        {
+            return Picture.Bounds.IntersectsWith(otherPic.Bounds);
         }
     }
 

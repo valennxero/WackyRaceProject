@@ -42,5 +42,16 @@ namespace WackyRaceProject
             this.Picture.Parent = container;
             this.Picture.BringToFront();
         }
+
+        public void RemoveFrom(Control container)
+        {
+            container.Controls.Remove(this.Picture);
+            Picture.Dispose();
+        }
+        public void ToggleAnimation()
+        {
+            this.CurrentSpriteIndex = (CurrentSpriteIndex + 1) % 2;
+            this.Picture.Image = listVehicleImg[CurrentSpriteIndex];
+        }
     }
 }

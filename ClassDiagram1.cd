@@ -10,22 +10,15 @@
   <Class Name="WackyRaceProject.Vehicle">
     <Position X="3" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAIAAAAAAAAAAAAQAgEAEAIBgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACgAAAAIAAAAAAgAAAAAQAgEAEAIBgAAAAAAAAAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WackyRaceProject.Obstacle">
     <Position X="0.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAJAAAAAQAAAAAAQAAAAEAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAJAAAAAQgAAAAAQAAAAEAACgAAAAAAAAAAA=</HashCode>
       <FileName>Obstacle.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="WackyRaceProject.Car">
-    <Position X="0.75" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Car.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WackyRaceProject.Player">
@@ -40,6 +33,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Horse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WackyRaceProject.Car">
+    <Position X="0.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Car.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -1,0 +1,6 @@
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.csprojAssemblyReference.cache
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.Form1.resources
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.Form2.resources
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.Properties.Resources.resources
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.csproj.GenerateResource.cache
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.csproj.CoreCompileInputs.cache
