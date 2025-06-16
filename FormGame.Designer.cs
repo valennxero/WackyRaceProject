@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -36,6 +37,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.playGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerBackground = new System.Windows.Forms.Timer(this.components);
+            this.timerSurviveTime = new System.Windows.Forms.Timer(this.components);
+            this.timerPlayerAnimation = new System.Windows.Forms.Timer(this.components);
+            this.timerMoveCooldown = new System.Windows.Forms.Timer(this.components);
+            this.timerObstacleSpawner = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -64,12 +70,13 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.Location = new System.Drawing.Point(179, 247);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
             this.button1.Text = "Restart";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
@@ -122,6 +129,22 @@
             this.playGameToolStripMenuItem.Text = "Play Game";
             this.playGameToolStripMenuItem.Click += new System.EventHandler(this.playGameToolStripMenuItem_Click);
             // 
+            // timerBackground
+            // 
+            this.timerBackground.Interval = 30;
+            // 
+            // timerSurviveTime
+            // 
+            this.timerSurviveTime.Interval = 1000;
+            // 
+            // timerMoveCooldown
+            // 
+            this.timerMoveCooldown.Interval = 500;
+            // 
+            // timerObstacleSpawner
+            // 
+            this.timerObstacleSpawner.Interval = 1000;
+            // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,6 +183,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem playGameToolStripMenuItem;
+        private System.Windows.Forms.Timer timerBackground;
+        private System.Windows.Forms.Timer timerSurviveTime;
+        private System.Windows.Forms.Timer timerPlayerAnimation;
+        private System.Windows.Forms.Timer timerMoveCooldown;
+        private System.Windows.Forms.Timer timerObstacleSpawner;
     }
 }
 

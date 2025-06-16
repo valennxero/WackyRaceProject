@@ -24,7 +24,7 @@ namespace WackyRaceProject
         FormGame formGame;
         private void button1_Click(object sender, EventArgs e)
         {
-            if (formGame.player is null)
+            if (formGame.player != null)
             {
                 foreach(Image img in formGame.player.PlayerVehicle.ListVehicleImg)
                 {
@@ -47,9 +47,13 @@ namespace WackyRaceProject
                 SelectedVehicle = formGame.listVehicle[2];
             }
             formGame.player = new Player(inputName, SelectedVehicle, 1);
-            formGame.Load();
-            formGame.startGame();
+            formGame.OpenFile(formGame.defaultFileName);
+            formGame.StartGame();
             this.Close();
+        }
+        private void FormSelectVehicle_Load(object sender, EventArgs e)
+        {
+            formGame = (FormGame)this.Owner;
         }
     }
 }

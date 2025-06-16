@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using JevonTimeLibrary;
 using System.IO;
-using System.Runtime.Serialization.Formatters;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Media;
 
 namespace WackyRaceProject
 {
@@ -55,6 +55,13 @@ namespace WackyRaceProject
         public Player player;
         List<Point> playerPositions;
         int playerCurrentPosition;
+        bool canMove = true;
+
+        Image backgroundImage;
+        int bgOffset = 0;
+        int scrollSpeed = 15;
+        SoundPlayer soundPlayer;
+        JevonTime currentTime;
 
         List<Point> spawnPositions;
         void InitializePositions()
@@ -99,14 +106,14 @@ namespace WackyRaceProject
             }
         }
         public string defaultFileName = "bestTime.dat";
-        public void SaveProduct(string fileName)
+        public void SaveFile(string fileName)
         {
             FileStream myfile = new FileStream(fileName, FileMode.Create, FileAccess.Write);
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(myfile, player.BestTime);
             myfile.Close();
         }
-        public void OpenProduct(string fileName)
+        public void OpenFile(string fileName)
         {
             if (File.Exists(fileName))
             {
@@ -119,7 +126,9 @@ namespace WackyRaceProject
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            InitializeVehicle();
+            InitializeObstacle();
+            BackgroundImage = Properties.Resources.bg1small;
         }
 
         private void playGameToolStripMenuItem_Click(object sender, EventArgs e)

@@ -37,6 +37,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -45,6 +46,7 @@
             // radioButtonHorse
             // 
             this.radioButtonHorse.AutoSize = true;
+            this.radioButtonHorse.Checked = true;
             this.radioButtonHorse.Location = new System.Drawing.Point(95, 151);
             this.radioButtonHorse.Name = "radioButtonHorse";
             this.radioButtonHorse.Size = new System.Drawing.Size(53, 17);
@@ -60,7 +62,6 @@
             this.radioButtonBike.Name = "radioButtonBike";
             this.radioButtonBike.Size = new System.Drawing.Size(46, 17);
             this.radioButtonBike.TabIndex = 4;
-            this.radioButtonBike.TabStop = true;
             this.radioButtonBike.Text = "Bike";
             this.radioButtonBike.UseVisualStyleBackColor = true;
             // 
@@ -71,7 +72,6 @@
             this.radioButtonCar.Name = "radioButtonCar";
             this.radioButtonCar.Size = new System.Drawing.Size(41, 17);
             this.radioButtonCar.TabIndex = 5;
-            this.radioButtonCar.TabStop = true;
             this.radioButtonCar.Text = "Car";
             this.radioButtonCar.UseVisualStyleBackColor = true;
             // 
@@ -93,12 +93,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(369, 362);
+            this.button1.BackColor = System.Drawing.Color.Lime;
+            this.button1.Location = new System.Drawing.Point(337, 367);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(142, 54);
             this.button1.TabIndex = 8;
             this.button1.Text = "Start";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox3
@@ -132,11 +133,21 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(104, 99);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Select Vehicle";
+            // 
             // FormSelectVehicle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxName);
@@ -148,6 +159,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormSelectVehicle";
             this.Text = "Selected Vehicle";
+            this.Load += new System.EventHandler(this.FormSelectVehicle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -167,5 +179,6 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
     }
 }
