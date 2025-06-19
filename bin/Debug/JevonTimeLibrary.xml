@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JevonTimeLibrary</name>
+    </assembly>
+    <members>
+        <member name="M:JevonTimeLibrary.JevonTime.KonversiDetikkeJam(System.Int32)">
+            <summary>
+            method konversiDetikKeJam untuk mengubah format waktu detik ke jam, menit, detik
+            </summary>
+            <param name="totalSec"></param>totalSec adalah format waktu yang akan diubah menjadi hh,mm,ss
+        </member>
+        <member name="M:JevonTimeLibrary.JevonTime.KonversiJamKeDetik">
+            <summary>
+            konversi dari hh,mm,ss jadi total detik
+            </summary>
+            <param name="jam"></param>parameter hh
+            <param name="menit"></param>parameter mm
+        </member>
+    </members>
+</doc>

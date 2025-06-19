@@ -39,9 +39,9 @@ namespace WackyRaceProject
             bikeImages.Add(Properties.Resources.bike2);
             bikeImages.Add(Properties.Resources.bike3);
             bikeImages.Add(Properties.Resources.bike4);
-
+            carImages = new List<Image>();
             carImages.Add(Properties.Resources.car1);
-            carImages.Add(Properties.Resources.car1);
+            carImages.Add(Properties.Resources.car2);
 
             Vehicle newVehicle;
             listVehicle = new List<Vehicle>();
@@ -103,6 +103,7 @@ namespace WackyRaceProject
                     listActiveObstacle[0].RemoveFrom(this);
                     listActiveObstacle.RemoveAt(0);
                 }
+                
             }
         }
         public string defaultFileName = "bestTime.dat";
@@ -128,7 +129,16 @@ namespace WackyRaceProject
         {
             InitializeVehicle();
             InitializeObstacle();
-            BackgroundImage = Properties.Resources.bg1small;
+            InitializePositions();
+            backgroundImage = Properties.Resources.bg1small;
+            pictureBoxLogo.Visible = true;
+            labelPlayerInfo.Text = "Player Info";
+            labelPlayerInfo.Visible = false;
+            labelTimeInfo.Text = "Time Info";
+            labelTimeInfo.Visible = false;
+            labelBestTime.Visible = false;
+            buttonRestart.Visible = false;
+            labelGameOver.Visible = false;
         }
 
         private void playGameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -140,7 +150,170 @@ namespace WackyRaceProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Application.Restart();
         }
+        public void StartGame()
+        {
+            menuStripGame.Visible = false;
+            pictureBoxLogo.Visible = false;
+            labelGameOver.Visible = false;
+            buttonRestart.Visible = false;
+            labelTimeInfo.Text = "00:00:00";
+            labelTimeInfo.Visible = true;
+            labelPlayerInfo.Text = "Player " + player.Name;
+            labelPlayerInfo.Visible = true;
+
+            timerBackground.Start();
+            timerSurviveTime.Start();
+            timerPlayerAnimation.Start();
+            timerObstacleSpawner.Start();
+
+            currentTime = new JevonTime();
+            player.PlayerVehicle.SetLocation(playerPositions[1]);
+            playerCurrentPosition = 1;
+            player.PlayerVehicle.DisplayPicture(this);
+
+            InitializeObstacle();
+            
+        }
+
+        private void timerSurviveTime_Tick(object sender, EventArgs e)
+        {
+            labelTimeInfo.Text = currentTime.Hour.ToString("D2") + ":" +
+                currentTime.Minute.ToString("D2") +
+                currentTime.Second.ToString("D2");
+            currentTime.AddSec(1);
+        }
+
+        private void FormGame_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up && canMove)
+            {
+                canMove = false;
+                if (playerCurrentPosition != 0)
+                {
+                    playerCurrentPosition--;
+                    player.PlayerVehicle.SetLocation(playerPositions[playerCurrentPosition]);
+                }
+                timerMoveCooldown.Start();                
+            }
+            else if (e.KeyCode == Keys.Down && canMove)
+            {
+                canMove = false;
+                if (playerCurrentPosition != 2)
+                {
+                    playerCurrentPosition++;
+                    player.PlayerVehicle.SetLocation(playerPositions[playerCurrentPosition]);
+                }
+                timerMoveCooldown.Start();
+             }
+            player.PlayerVehicle.DisplayPicture(this);
+        }
+        private void timerMoveCooldown_Tick(object sender, EventArgs e)
+        {
+            canMove = true;
+            timerMoveCooldown.Stop();
+        }
+        
+        private void timerBackground_Tick(object sender, EventArgs e)
+        {
+            bgOffset -= scrollSpeed;
+            if(Math.Abs(bgOffset)>= backgroundImage.Width)
+            {
+                bgOffset = 0;
+            }
+            foreach(Obstacle obs in listActiveObstacle)
+            {
+                obs.Picture.Location = new Point(obs.Picture.Location.X - scrollSpeed, obs.Picture.Location.Y);
+                //obs.DisplayPicture(this);
+                if (obs.CheckCollision(player.PlayerVehicle.Picture))
+                {
+                    player.Life -= 1;
+                    if (player.Life <= 0)
+                    {
+                        GameOver();
+                        
+                    }
+                }
+                if (obs.Picture.Location.X <-(obs.Picture.Width))
+                {
+                    obs.RemoveFrom(this);
+                    obs.IsDestroyed = true;
+                }
+            }
+            for (int i = 0; i < listActiveObstacle.Count;)
+            {
+                if (listActiveObstacle[i].IsDestroyed)
+                {
+                    listActiveObstacle.RemoveAt(i);
+                }
+                else
+                    i++;
+            }
+            Invalidate();
+        }
+        private void DrawScrollingBackground(Graphics g)
+        {
+            int imgWidth = backgroundImage.Width;
+            int imgHeight = backgroundImage.Height;
+            g.DrawImage(backgroundImage, bgOffset, 0, imgWidth, imgHeight);
+            g.DrawImage(backgroundImage, bgOffset + imgWidth, 0, imgWidth, imgHeight);
+        }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            DrawScrollingBackground(e.Graphics);
+        }
+        private Random rand = new Random();
+
+        private void GameOver()
+        {
+            foreach(IComponent comp in this.components.Components)
+            {
+                if (comp is Timer timer)
+                {
+                    timer.Stop();
+                }
+            }
+            labelGameOver.Visible = true;
+
+            labelTimeInfo.Text = "You survived\nfor : " + currentTime.Hour.ToString("D2") + ":" +
+                currentTime.Minute.ToString("D2") + ":" + currentTime.Second.ToString("D2");
+            if(player.BestTime == null)
+            {
+                player.BestTime = currentTime;
+                SaveFile(defaultFileName);
+            }
+            /*else if (player.BestTime.KonversiJamKeDetik() < currentTime.KonversiJamKeDetik())
+            {
+
+            }
+            */
+            labelBestTime.Text = "Best Time :\n" + player.BestTime.Hour.ToString("D2") + ":" +
+                player.BestTime.Minute.ToString("D2") + ":" + player.BestTime.Second.ToString("D2");
+            buttonRestart.Visible = true;
+        }
+
+        private void timerPlayerAnimation_Tick(object sender, EventArgs e)
+        {
+            player.PlayerVehicle.ToggleAnimation();
+        }
+
+        private void timerObstacleSpawner_Tick(object sender, EventArgs e)
+        {
+            int randomPos = rand.Next(0, 3);
+            int randomType = rand.Next(0, listObstacle.Count);
+
+            Obstacle spawnedObstacle = new Obstacle(
+                listObstacle[randomType].Name,
+                listObstacle[randomType].Picture.Image
+            );
+
+            spawnedObstacle.SetLocation(spawnPositions[randomPos]);
+            spawnedObstacle.DisplayPicture(this);
+            listActiveObstacle.Add(spawnedObstacle);
+        }
+
+
     }
 }

@@ -1,6 +1,15 @@
 Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.csprojAssemblyReference.cache
-Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.Form1.resources
-Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.Form2.resources
 Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.Properties.Resources.resources
 Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.csproj.GenerateResource.cache
 Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.csproj.CoreCompileInputs.cache
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.FormGame.resources
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.FormSelectVehicle.resources
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\bin\Debug\WackyRaceProject.exe.config
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\bin\Debug\WackyRaceProject.exe
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\bin\Debug\WackyRaceProject.pdb
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\bin\Debug\JevonTimeLibrary.dll
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\bin\Debug\JevonTimeLibrary.pdb
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\bin\Debug\JevonTimeLibrary.xml
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.csproj.CopyComplete
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.exe
+Z:\Kuliah\semester 2\oop\WackyRaceProject\WackyRaceProject\obj\Debug\WackyRaceProject.pdb

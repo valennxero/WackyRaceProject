@@ -44,9 +44,15 @@ namespace WackyRaceProject
         }
         public void DisplayPicture(Control container)
         {
+            if (!container.Controls.Contains(this.Picture))
+            {
+                container.Controls.Add(this.Picture);
+            }
+
             this.Picture.Parent = container;
             this.Picture.BringToFront();
         }
+
         public void RemoveFrom(Control container)
         {
             container.Controls.Remove(this.Picture);
